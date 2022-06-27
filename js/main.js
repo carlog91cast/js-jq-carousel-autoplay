@@ -16,6 +16,7 @@ const imgList = [
 let activeImageIndex = 0;
 const carousel = document.querySelector('.carousel-image');
 
+
 // creo un if per cui se l'immagine è uguale alla prima nell'array allora aggiungo la classe con display block cosi da farla vedere
 
 for (let index = 0; index < imgList.length; index++) {
@@ -33,12 +34,16 @@ for (let index = 0; index < imgList.length; index++) {
     carousel.append(image);
 
 
-}
+};
 
 
+const btnStop = document.getElementById('btn-stop');
 const btnPre = document.getElementById('btn-next');
 btnPre.addEventListener('click', function () {
-    const clock = setInterval(imgPlay, 3000);
+    const clock = setInterval(imgPlay, 700);
+    btnStop.addEventListener('click', function () {
+        clearInterval(clock);
+    });
     const activeImage = document.querySelector('img.active');
     activeImage.classList.remove('active');
     console.log(carousel);
@@ -57,17 +62,12 @@ btnPre.addEventListener('click', function () {
     // console.log(activeImage);
 });
 
-// inizializzo una variabile per fare in modo che le immagini scorrano automaticamente ogni 3 secondi
-
 
 
 
 // creo un button stop per fermare (eventualmente) lo scorrimento
 
-const btnStop = document.getElementById('btn-stop');
-btnStop.addEventListener('click', function () {
-    clearInterval(clock);
-});
+
 
 // inserisco la funzione di scorrimento delle immagini all'interno di una funzione che poi inserisco sopra nel setInterval
 
