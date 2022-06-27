@@ -37,31 +37,43 @@ for (let index = 0; index < imgList.length; index++) {
 
 
 const btnPre = document.getElementById('btn-next');
+btnPre.addEventListener('click', function () {
+    const activeImage = document.querySelector('img.active');
+    activeImage.classList.remove('active');
+    console.log(carousel);
+    console.log(activeImage);
+
+    activeImageIndex++;
 
 
-// inizializzo una variabile per fare in modo che le immagini scorrano automaticamente ogni 2 secondi
+    if (activeImageIndex === imgList.length) {
+        activeImageIndex = 0;
+    };
+    const nextimage = document.getElementById(activeImageIndex);
+    console.log(nextimage);
+    nextimage.classList.add('active');
+    // activeImage[activeImageIndex].classList.add('active');
+    // console.log(activeImage);
+});
+
+// inizializzo una variabile per fare in modo che le immagini scorrano automaticamente ogni 3 secondi
 
 const clock = setInterval(imgPlay, 3000);
 
 
-
 function imgPlay() {
-    btnPre.addEventListener('click', function () {
-        const activeImage = document.querySelector('img.active');
-        activeImage.classList.remove('active');
-        console.log(carousel);
-        console.log(activeImage);
+    const activeImage = document.querySelector('img.active');
+    activeImage.classList.remove('active');
+    console.log(carousel);
+    console.log(activeImage);
 
-        activeImageIndex++;
+    activeImageIndex++;
 
 
-        if (activeImageIndex === imgList.length) {
-            activeImageIndex = 0;
-        };
-        const nextimage = document.getElementById(activeImageIndex);
-        console.log(nextimage);
-        nextimage.classList.add('active');
-        // activeImage[activeImageIndex].classList.add('active');
-        // console.log(activeImage);
-    });
+    if (activeImageIndex === imgList.length) {
+        activeImageIndex = 0;
+    };
+    const nextimage = document.getElementById(activeImageIndex);
+    console.log(nextimage);
+    nextimage.classList.add('active');
 };
