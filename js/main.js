@@ -58,7 +58,16 @@ btnPre.addEventListener('click', function () {
 
 // inizializzo una variabile per fare in modo che le immagini scorrano automaticamente ogni 3 secondi
 
-const clock = setInterval(imgPlay, 3000);
+const clock = setInterval(imgPlay, 500);
+const btnStop = document.getElementById('btn-stop');
+btnStop.addEventListener('click', function(){
+    clearInterval(clock);
+});
+
+    
+
+  
+
 
 
 function imgPlay() {
