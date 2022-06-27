@@ -37,24 +37,31 @@ for (let index = 0; index < imgList.length; index++) {
 
 
 const btnPre = document.getElementById('btn-next');
-btnPre.addEventListener('click', function () {
-    const activeImage = document.querySelector('img.active');
-    activeImage.classList.remove('active');
-    console.log(carousel);
-    console.log(activeImage);
-
-    activeImageIndex++;
 
 
-    if (activeImageIndex === imgList.length) {
-        activeImageIndex = 0;
-    };
-    const nextimage = document.getElementById(activeImageIndex);
-    console.log(nextimage);
-    nextimage.classList.add('active');
-    // activeImage[activeImageIndex].classList.add('active');
-    // console.log(activeImage);
-});
- function imgPlay() {
-    
- }
+// inizializzo una variabile per fare in modo che le immagini scorrano automaticamente ogni 2 secondi
+
+const clock = setInterval(imgPlay, 3000);
+
+
+
+function imgPlay() {
+    btnPre.addEventListener('click', function () {
+        const activeImage = document.querySelector('img.active');
+        activeImage.classList.remove('active');
+        console.log(carousel);
+        console.log(activeImage);
+
+        activeImageIndex++;
+
+
+        if (activeImageIndex === imgList.length) {
+            activeImageIndex = 0;
+        };
+        const nextimage = document.getElementById(activeImageIndex);
+        console.log(nextimage);
+        nextimage.classList.add('active');
+        // activeImage[activeImageIndex].classList.add('active');
+        // console.log(activeImage);
+    });
+};
