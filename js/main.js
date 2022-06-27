@@ -38,6 +38,7 @@ for (let index = 0; index < imgList.length; index++) {
 
 const btnPre = document.getElementById('btn-next');
 btnPre.addEventListener('click', function () {
+    const clock = setInterval(imgPlay, 3000);
     const activeImage = document.querySelector('img.active');
     activeImage.classList.remove('active');
     console.log(carousel);
@@ -58,17 +59,17 @@ btnPre.addEventListener('click', function () {
 
 // inizializzo una variabile per fare in modo che le immagini scorrano automaticamente ogni 3 secondi
 
-const clock = setInterval(imgPlay, 500);
+
+
+
+// creo un button stop per fermare (eventualmente) lo scorrimento
+
 const btnStop = document.getElementById('btn-stop');
-btnStop.addEventListener('click', function(){
+btnStop.addEventListener('click', function () {
     clearInterval(clock);
 });
 
-    
-
-  
-
-
+// inserisco la funzione di scorrimento delle immagini all'interno di una funzione che poi inserisco sopra nel setInterval
 
 function imgPlay() {
     const activeImage = document.querySelector('img.active');
